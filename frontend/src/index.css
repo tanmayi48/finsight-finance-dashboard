@@ -2202,3 +2202,123 @@ tbody td:first-child {
         font-size: 17px;
     }
 }
+/* =========================================
+   MATCH TRANSACTION AND BUDGET FORM SIZE
+========================================= */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* Both cards same size */
+.dashboard-grid .form-card {
+    width: 100%;
+    min-height: 560px;
+    padding: 38px;
+    box-sizing: border-box;
+}
+
+/* Reduce Budget heading size */
+.budget-form-header h2 {
+    color: #f8fafc;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+}
+
+.budget-form-header p {
+    color: #94a3b8;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* Remove oversized inner budget box */
+.budget-form {
+    margin-top: 24px;
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+/* Budget field spacing */
+.budget-form-group {
+    margin-bottom: 20px;
+}
+
+.budget-form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #f8fafc;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Same field height as transaction form */
+.budget-form-group input,
+.budget-form-group select {
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+
+    background: #0b192b;
+    color: #f8fafc;
+
+    border: 1px solid #334155;
+    border-radius: 8px;
+
+    font-size: 17px;
+    box-sizing: border-box;
+}
+
+/* Month and Year */
+.budget-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Smaller Save Budget button */
+.budget-submit-button {
+    width: 100%;
+    height: 52px;
+
+    padding: 0 20px;
+    margin-top: 2px;
+
+    background: #3b82f6;
+    color: #ffffff;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.budget-submit-button:hover {
+    background: #2563eb;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid .form-card {
+        min-height: auto;
+        padding: 24px;
+    }
+
+    .budget-form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}

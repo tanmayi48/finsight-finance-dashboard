@@ -83,8 +83,8 @@ function BudgetForm({ onBudgetAdded }) {
     };
 
     return (
-        <div className="form-card budget-form-card">
-            <div className="budget-form-header">
+        <div className="form-card">
+                        <div className="budget-form-header">
                 <h2>Create Monthly Budget</h2>
 
                 <p>
