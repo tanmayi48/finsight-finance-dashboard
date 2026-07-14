@@ -248,25 +248,28 @@ function Dashboard() {
                         </div>
 
                         <div className="dashboard-grid">
-                            <TransactionForm
-                                onTransactionAdded={
-                                    refreshAfterTransaction
-                                }
-                            />
+    <TransactionForm
+        onTransactionAdded={
+            refreshAfterTransaction
+        }
+    />
 
-                           <BudgetForm
-    onBudgetAdded={refreshAfterBudget}
+    <BudgetForm
+        onBudgetAdded={refreshAfterBudget}
+    />
+</div>
+
+<BudgetList
+    budgets={budgets}
+    onBudgetDeleted={refreshAfterBudget}
 />
-                        </div>
 
-                       
-
-                        <TransactionList
-                            transactions={transactions}
-                            onTransactionDeleted={
-                                refreshAfterTransaction
-                            }
-                        />
+<TransactionList
+    transactions={transactions}
+    onTransactionDeleted={
+        refreshAfterTransaction
+    }
+/>
                     </>
                 )}
             </main>

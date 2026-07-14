@@ -2322,3 +2322,186 @@ tbody td:first-child {
         gap: 0;
     }
 }
+/* =========================================
+   MONTHLY BUDGET LIST
+========================================= */
+
+.budget-list-card {
+    width: 100%;
+    margin-top: 32px;
+    padding: 36px;
+
+    background: #0f1f35;
+    border: 1px solid #24364d;
+    border-radius: 20px;
+
+    box-sizing: border-box;
+}
+
+.budget-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 28px;
+}
+
+.budget-list-header h2 {
+    margin: 0 0 8px 0;
+
+    color: #f8fafc;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.budget-list-header p {
+    margin: 0;
+
+    color: #94a3b8;
+    font-size: 17px;
+}
+
+.budget-count {
+    padding: 8px 14px;
+
+    background: #172a46;
+    color: #60a5fa;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.budget-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.budget-item {
+    padding: 22px;
+
+    background: #0b192b;
+
+    border: 1px solid #263b55;
+    border-radius: 14px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.budget-item:hover {
+    transform: translateY(-2px);
+
+    border-color: #3b82f6;
+}
+
+.budget-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 16px;
+}
+
+.budget-item h3 {
+    margin: 0 0 8px 0;
+
+    color: #f8fafc;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.budget-item p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 15px;
+}
+
+.budget-amount {
+    color: #3b82f6;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+.budget-delete-button {
+    margin-top: 22px;
+
+    padding: 8px 16px;
+
+    background: rgba(
+        239,
+        68,
+        68,
+        0.12
+    );
+
+    color: #f87171;
+
+    border: 1px solid rgba(
+        239,
+        68,
+        68,
+        0.25
+    );
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.budget-delete-button:hover {
+    background: rgba(
+        239,
+        68,
+        68,
+        0.22
+    );
+}
+
+.no-budget-message {
+    color: #94a3b8;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   BUDGET LIST RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+    .budget-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .budget-list-card {
+        padding: 24px;
+    }
+
+    .budget-list-header {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .budget-grid {
+        grid-template-columns: 1fr;
+    }
+}
