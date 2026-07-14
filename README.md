@@ -2,245 +2,113 @@
 
 ### Personal Finance Analytics & Expense Forecasting Platform
 
-::: {align="center"}
-A full-stack finance dashboard for tracking, analyzing, and predicting
-personal expenses.
+FinSight is a full-stack personal finance application built using the **MERN stack**. It helps users track income and expenses, manage monthly budgets, analyze spending patterns, and predict future expenses using historical financial data.
 
-**[Live Demo](https://finsightfinancedashboard.netlify.app/) · [GitHub
-Repository](https://github.com/tanmayi48/finsight-finance-dashboard)**
-:::
+🔗 **[Live Project](https://finsightfinancedashboard.netlify.app/)**
 
-------------------------------------------------------------------------
+---
 
-## 💡 What is FinSight?
+## ✨ Features
 
-FinSight is a full-stack personal finance analytics platform designed to
-help users track income, monitor expenses, manage monthly budgets, and
-understand spending patterns through interactive financial
-visualizations.
+- 🔐 Secure user authentication using JWT
+- 💳 Add and delete income and expense transactions
+- 💰 Real-time income, expense, and balance calculation
+- 🎯 Category-wise monthly budget management
+- 📊 Category-based expense analysis
+- 📈 Monthly income and expense visualization
+- 🧠 Personalized financial insights
+- 🔮 Next-month expense prediction
+- 📉 Interactive charts using Chart.js
 
-Unlike a basic expense tracker, FinSight analyzes transaction history,
-generates financial insights, and estimates future expenses using
-historical spending trends.
-
-> 💡 **Track smarter. Understand your spending. Plan your finances
-> better.**
-
-``` text
-👤 User adds transactions
-        ↓
-💳 FinSight stores financial data
-        ↓
-📊 Backend analyzes spending patterns
-        ↓
-🧠 Financial insights are generated
-        ↓
-📈 Future expenses are predicted
-        ↓
-💰 Dashboard displays financial overview
-```
-
-------------------------------------------------------------------------
-
-## ✨ Feature Highlights
-
-  ---------------------------------------------------------------------
-  🚀 Feature                         📝 Description
-  ---------------------------------- ----------------------------------
-  🔐 Secure Authentication           JWT-based user registration and
-                                     login
-
-  💳 Transaction Management          Add and manage income and expense
-                                     transactions
-
-  💰 Financial Overview              View total income, total expenses,
-                                     and current balance
-
-  🎯 Budget Management               Set category-wise monthly spending
-                                     limits
-
-  📊 Expense Analytics               Analyze category-wise expense
-                                     distribution
-
-  📈 Monthly Trends                  Compare monthly income and expense
-                                     patterns
-
-  🧠 Financial Insights              Generate observations based on
-                                     spending activity
-
-  🔮 Expense Forecasting             Predict next-month expenses using
-                                     historical trends
-
-  📉 Interactive Charts              Visualize financial data using
-                                     Chart.js
-
-  ☁️ Cloud Deployment A              ccess the deployed full-stack
-                                     application online
-  ---------------------------------------------------------------------
-
-------------------------------------------------------------------------
+---
 
 ## 🏗️ System Architecture
 
-``` text
-╔══════════════════════════════════════════════╗
-║                 👤 USER                      ║
-║        Login • Transactions • Budgets        ║
-╚══════════════════════╦═══════════════════════╝
-                       ║
-                       ▼
-╔══════════════════════════════════════════════╗
-║            ⚛️ REACT FRONTEND                 ║
-║   Dashboard • Forms • Charts • Insights      ║
-║                 Netlify                      ║
-╚══════════════════════╦═══════════════════════╝
-                       ║
-                 Axios / REST API
-                       ║
-                       ▼
-╔══════════════════════════════════════════════╗
-║          🚀 NODE.JS + EXPRESS API            ║
-║ Authentication • Transactions • Budgets      ║
-║ Analytics • Insights • Predictions           ║
-║                  Render                      ║
-╚══════════════════════╦═══════════════════════╝
-                       ║
-                    Mongoose
-                       ║
-                       ▼
-╔══════════════════════════════════════════════╗
-║             🗄️ MONGODB ATLAS                ║
-║        Users • Transactions • Budgets        ║
-╚══════════════════════════════════════════════╝
+```text
+👤 User
+   ↓
+⚛️ React Frontend
+   ↓
+🔗 Axios / REST API
+   ↓
+🚀 Node.js + Express.js
+   ↓
+🗄️ MongoDB Atlas
 ```
 
-------------------------------------------------------------------------
+---
 
 ## 🛠️ Tech Stack
 
-  -----------------------------------------------------------------------
-  Layer                   Technology              Purpose
-  ----------------------- ----------------------- -----------------------
-  ⚛️ Frontend R           eact.js + Vite B        uild the interactive
-                                                  financial dashboard
+| Layer | Technology |
+|---|---|
+| Frontend | React.js, Vite |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas, Mongoose |
+| Authentication | JWT, bcryptjs |
+| API Communication | Axios |
+| Data Visualization | Chart.js |
+| Prediction | Simple Linear Regression |
+| Deployment | Netlify, Render |
 
-  🔗 API Communication    Axios                   Connect the frontend
-                                                  with REST APIs
+---
 
-  📊 Data Visualization   Chart.js                Display expense
-                                                  distribution and
-                                                  monthly trends
+## 🔮 Expense Prediction
 
-  🚀 Backend              Node.js + Express.js    Handle APIs and
-                                                  application logic
+FinSight uses **Simple Linear Regression** to estimate the user's next-month expenses based on historical monthly spending.
 
-  🗄️ Database M           ongoDB Atlas S          tore users,
-                                                  transactions, and
-                                                  budgets
-
-  🔧 ODM                  Mongoose                Model and manage
-                                                  MongoDB data
-
-  🔐 Authentication       JWT + bcryptjs          Secure authentication
-                                                  and password hashing
-
-  🧠 Prediction           Simple Linear           Estimate future
-                          Regression              expenses
-
-  🌐 Frontend Hosting     Netlify                 Deploy the React
-                                                  frontend
-
-  ☁️ Backend Hosting R    ender D                 eploy the Node.js
-                                                  backend
-  -----------------------------------------------------------------------
-
-------------------------------------------------------------------------
-
-## 🔮 Expense Forecasting
-
-FinSight includes a lightweight expense prediction module that analyzes
-historical monthly spending data and estimates the expected expense for
-the upcoming month.
-
-``` text
-📥 Historical Expense Data
-          ↓
-📅 Group Expenses by Month
-          ↓
-💰 Calculate Monthly Expense Totals
-          ↓
-📈 Analyze Spending Trend
-          ↓
-🧠 Apply Simple Linear Regression
-          ↓
-🔮 Predict Next-Month Expense
+```text
+Historical Expenses
+        ↓
+Group Expenses by Month
+        ↓
+Calculate Monthly Totals
+        ↓
+Analyze Spending Trend
+        ↓
+Apply Linear Regression
+        ↓
+Predict Next-Month Expense
 ```
 
-The prediction workflow groups historical expenses by month, calculates
-monthly totals, and applies Simple Linear Regression to identify the
-spending trend. The predicted value is returned through the backend API
-and displayed on the financial dashboard.
+---
 
-------------------------------------------------------------------------
+## ⚙️ How It Works
 
-## ⚙️ How FinSight Works
+1. The user registers or logs in to FinSight.
+2. JWT authentication protects user-specific financial data.
+3. Income and expense transactions are stored in MongoDB Atlas.
+4. The backend processes financial data using REST APIs.
+5. Analytics services calculate category-wise and monthly spending trends.
+6. Financial insights are generated from transaction and budget data.
+7. The prediction module estimates the next month's expenses.
+8. Results are displayed on the React dashboard.
 
-``` text
-1️⃣ User creates an account or logs in
-              ↓
-2️⃣ JWT verifies and protects the user
-              ↓
-3️⃣ User adds income and expense transactions
-              ↓
-4️⃣ Financial data is stored in MongoDB Atlas
-              ↓
-5️⃣ Express REST APIs process financial data
-              ↓
-6️⃣ Analytics services calculate spending trends
-              ↓
-7️⃣ Insight service analyzes financial activity
-              ↓
-8️⃣ Prediction service forecasts future expenses
-              ↓
-9️⃣ React dashboard displays the results
-```
-
-FinSight follows a client-server architecture. The React frontend sends
-requests through Axios to the Express backend. Protected APIs process
-user-specific financial data stored in MongoDB Atlas, while analytics,
-insight, and prediction modules generate dashboard results.
-
-------------------------------------------------------------------------
+---
 
 ## 🔌 API Modules
 
-  -----------------------------------------------------------------------
-  API Module              Base Endpoint           Purpose
-  ----------------------- ----------------------- -----------------------
-  🔐 Authentication       `/api/auth`             Register and
-                                                  authenticate users
+| Module | Endpoint | Purpose |
+|---|---|---|
+| Authentication | `/api/auth` | User registration and login |
+| Transactions | `/api/transactions` | Manage financial transactions |
+| Budgets | `/api/budgets` | Manage monthly budgets |
+| Analytics | `/api/analytics` | Generate financial analytics |
+| Insights | `/api/insights` | Generate financial insights |
+| Predictions | `/api/predictions` | Generate expense predictions |
 
-  💳 Transactions         `/api/transactions`     Manage income and
-                                                  expense transactions
+---
 
-  🎯 Budgets              `/api/budgets`          Manage category-wise
-                                                  monthly budgets
+## 🌐 Live Project
 
-  📊 Analytics            `/api/analytics`        Generate category and
-                                                  monthly financial
-                                                  analytics
+👉 **[Open FinSight](https://finsightfinancedashboard.netlify.app/)**
 
-  🧠 Insights             `/api/insights`         Generate personalized
-                                                  financial observations
+---
 
-  🔮 Predictions          `/api/predictions`      Generate expense
-                                                  forecasts
-  -----------------------------------------------------------------------
+<div align="center">
 
-------------------------------------------------------------------------
-
-::: {align="center"}
 ### 💰 Track. Analyze. Predict.
 
-**FinSight --- Understand your finances through data.**
-:::
+**FinSight — Understand your finances through data.**
+
+</div>
