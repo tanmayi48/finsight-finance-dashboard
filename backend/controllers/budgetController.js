@@ -1,7 +1,7 @@
 const Budget = require("../models/budget");
 const Transaction = require("../models/transaction");
 
-// Create or update monthly budget
+// Create or update budget
 const createBudget = async (req, res) => {
     try {
         const {
@@ -11,7 +11,6 @@ const createBudget = async (req, res) => {
             year
         } = req.body;
 
-        // Validate required fields
         if (
             !category ||
             limit === undefined ||
@@ -19,26 +18,21 @@ const createBudget = async (req, res) => {
             !year
         ) {
             return res.status(400).json({
-                message:
-                    "Please provide category, limit, month and year"
+                message: "Please provide all budget details"
             });
         }
 
-        // Convert limit to number
         const budgetLimit = Number(limit);
 
-        // Validate budget limit
         if (
             Number.isNaN(budgetLimit) ||
             budgetLimit <= 0
         ) {
             return res.status(400).json({
-                message:
-                    "Budget limit must be greater than 0"
+                message: "Budget limit must be greater than 0"
             });
         }
 
-        // Check whether budget already exists
         const existingBudget = await Budget.findOne({
             user: req.user._id,
             category,
@@ -46,7 +40,7 @@ const createBudget = async (req, res) => {
             year
         });
 
-        // Update existing budget
+        // Update budget if it already exists
         if (existingBudget) {
             existingBudget.limit = budgetLimit;
 
@@ -54,8 +48,7 @@ const createBudget = async (req, res) => {
                 await existingBudget.save();
 
             return res.status(200).json({
-                message:
-                    "Budget updated successfully",
+                message: "Budget updated successfully",
                 budget: updatedBudget
             });
         }
@@ -70,8 +63,7 @@ const createBudget = async (req, res) => {
         });
 
         return res.status(201).json({
-            message:
-                "Budget created successfully",
+            message: "Budget created successfully",
             budget
         });
     } catch (error) {
@@ -81,14 +73,13 @@ const createBudget = async (req, res) => {
         );
 
         return res.status(500).json({
-            message:
-                "Failed to create budget"
+            message: "Failed to create budget"
         });
     }
 };
 
 
-// Get all budgets of logged-in user
+// Get budgets
 const getBudgets = async (req, res) => {
     try {
         const budgets = await Budget.find({
@@ -106,8 +97,56 @@ const getBudgets = async (req, res) => {
         );
 
         return res.status(500).json({
-            message:
-                "Failed to load budgets"
+            message: "Failed to load budgets"
+        });
+    }
+};
+
+
+// Update budget
+const updateBudget = async (req, res) => {
+    try {
+        const { limit } = req.body;
+
+        const budgetLimit = Number(limit);
+
+        if (
+            Number.isNaN(budgetLimit) ||
+            budgetLimit <= 0
+        ) {
+            return res.status(400).json({
+                message: "Budget limit must be greater than 0"
+            });
+        }
+
+        const budget = await Budget.findOne({
+            _id: req.params.id,
+            user: req.user._id
+        });
+
+        if (!budget) {
+            return res.status(404).json({
+                message: "Budget not found"
+            });
+        }
+
+        budget.limit = budgetLimit;
+
+        const updatedBudget =
+            await budget.save();
+
+        return res.status(200).json({
+            message: "Budget updated successfully",
+            budget: updatedBudget
+        });
+    } catch (error) {
+        console.error(
+            "Update Budget Error:",
+            error
+        );
+
+        return res.status(500).json({
+            message: "Failed to update budget"
         });
     }
 };
@@ -182,8 +221,7 @@ const getBudgetUsage = async (req, res) => {
         );
 
         return res.status(500).json({
-            message:
-                "Failed to calculate budget usage"
+            message: "Failed to calculate budget usage"
         });
     }
 };
@@ -206,8 +244,7 @@ const deleteBudget = async (req, res) => {
         await budget.deleteOne();
 
         return res.status(200).json({
-            message:
-                "Budget deleted successfully"
+            message: "Budget deleted successfully"
         });
     } catch (error) {
         console.error(
@@ -216,8 +253,7 @@ const deleteBudget = async (req, res) => {
         );
 
         return res.status(500).json({
-            message:
-                "Failed to delete budget"
+            message: "Failed to delete budget"
         });
     }
 };
@@ -226,6 +262,7 @@ const deleteBudget = async (req, res) => {
 module.exports = {
     createBudget,
     getBudgets,
+    updateBudget,
     getBudgetUsage,
     deleteBudget
 };

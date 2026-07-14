@@ -4,21 +4,46 @@ const {
     createBudget,
     getBudgets,
     updateBudget,
+    getBudgetUsage,
     deleteBudget
-} = require("../controllers/budgetController");
+} = require(
+    "../controllers/budgetController"
+);
 
-const protect = require("../middleware/authMiddleware");
+const protect = require(
+    "../middleware/authMiddleware"
+);
 
 const router = express.Router();
 
-router
-    .route("/")
-    .post(protect, createBudget)
-    .get(protect, getBudgets);
+router.post(
+    "/",
+    protect,
+    createBudget
+);
 
-router
-    .route("/:id")
-    .put(protect, updateBudget)
-    .delete(protect, deleteBudget);
+router.get(
+    "/",
+    protect,
+    getBudgets
+);
+
+router.get(
+    "/usage",
+    protect,
+    getBudgetUsage
+);
+
+router.put(
+    "/:id",
+    protect,
+    updateBudget
+);
+
+router.delete(
+    "/:id",
+    protect,
+    deleteBudget
+);
 
 module.exports = router;
