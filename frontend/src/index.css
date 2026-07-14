@@ -1975,3 +1975,16 @@ tbody td:first-child {
     margin: 16px 0;
     font-weight: 500;
 }
+.auth-card h2 {
+    color: #0f172a !important;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.auth-card h2,
+.auth-page h2 {
+    color: #0f172a !important;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
