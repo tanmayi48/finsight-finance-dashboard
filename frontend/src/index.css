@@ -2517,8 +2517,8 @@ tbody td:first-child {
 }
 
 .dashboard-grid > .form-card {
-    min-height: 640px;
-    height: 640px;
+    height: auto;
+    min-height: 0;
     padding: 36px;
     box-sizing: border-box;
 }
@@ -2620,4 +2620,19 @@ tbody td:first-child {
         grid-template-columns: 1fr;
         gap: 0;
     }
+}
+/* Trim extra space below forms */
+
+.dashboard-grid {
+    align-items: start;
+}
+
+.dashboard-grid > .form-card {
+    height: auto !important;
+    min-height: 0 !important;
+}
+
+.budget-form-card {
+    height: auto !important;
+    min-height: 0 !important;
 }
