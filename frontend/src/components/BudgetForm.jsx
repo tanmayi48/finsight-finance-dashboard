@@ -6,16 +6,31 @@ function BudgetForm({ onBudgetAdded }) {
     const currentDate = new Date();
 
     const [category, setCategory] = useState("Food");
+
     const [limit, setLimit] = useState("");
+
     const [month, setMonth] = useState(
         currentDate.getMonth() + 1
     );
+
     const [year, setYear] = useState(
         currentDate.getFullYear()
     );
 
     const [error, setError] = useState("");
+
     const [success, setSuccess] = useState("");
+
+    const categories = [
+        "Food",
+        "Bills",
+        "Transport",
+        "Health",
+        "Entertainment",
+        "Shopping",
+        "Education",
+        "Other"
+    ];
 
     const months = [
         "January",
@@ -30,17 +45,6 @@ function BudgetForm({ onBudgetAdded }) {
         "October",
         "November",
         "December"
-    ];
-
-    const categories = [
-        "Food",
-        "Bills",
-        "Transport",
-        "Health",
-        "Entertainment",
-        "Shopping",
-        "Education",
-        "Other"
     ];
 
     const handleSubmit = async (event) => {
@@ -79,12 +83,14 @@ function BudgetForm({ onBudgetAdded }) {
     };
 
     return (
-        <div className="form-card">
-            <h2>Create Monthly Budget</h2>
+        <div className="form-card budget-form-card">
+            <div className="budget-form-header">
+                <h2>Create Monthly Budget</h2>
 
-            <p>
-                Set a spending limit for a category.
-            </p>
+                <p>
+                    Set a spending limit for a category.
+                </p>
+            </div>
 
             {success && (
                 <div className="success-message">
@@ -98,43 +104,63 @@ function BudgetForm({ onBudgetAdded }) {
                 </div>
             )}
 
-            <form onSubmit={handleSubmit}>
-                <label>Category</label>
+            <form
+                className="budget-form"
+                onSubmit={handleSubmit}
+            >
+                <div className="budget-form-group">
+                    <label htmlFor="budget-category">
+                        Category
+                    </label>
 
-                <select
-                    value={category}
-                    onChange={(event) =>
-                        setCategory(event.target.value)
-                    }
-                >
-                    {categories.map((item) => (
-                        <option
-                            key={item}
-                            value={item}
-                        >
-                            {item}
-                        </option>
-                    ))}
-                </select>
+                    <select
+                        id="budget-category"
+                        value={category}
+                        onChange={(event) =>
+                            setCategory(
+                                event.target.value
+                            )
+                        }
+                    >
+                        {categories.map((item) => (
+                            <option
+                                key={item}
+                                value={item}
+                            >
+                                {item}
+                            </option>
+                        ))}
+                    </select>
+                </div>
 
-                <label>Budget Limit</label>
+                <div className="budget-form-group">
+                    <label htmlFor="budget-limit">
+                        Budget Limit
+                    </label>
 
-                <input
-                    type="number"
-                    placeholder="Example: 5000"
-                    value={limit}
-                    onChange={(event) =>
-                        setLimit(event.target.value)
-                    }
-                    min="1"
-                    required
-                />
+                    <input
+                        id="budget-limit"
+                        type="number"
+                        placeholder="Example: 5000"
+                        value={limit}
+                        onChange={(event) =>
+                            setLimit(
+                                event.target.value
+                            )
+                        }
+                        min="1"
+                        required
+                    />
+                </div>
 
-                <div className="form-row">
-                    <div>
-                        <label>Month</label>
+                <div className="budget-form-row">
+                    <div className="budget-form-group">
+                        <label htmlFor="budget-month">
+                            Month
+                        </label>
 
                         <select
+                            id="budget-month"
                             value={month}
                             onChange={(event) =>
                                 setMonth(
@@ -143,7 +169,10 @@ function BudgetForm({ onBudgetAdded }) {
                             }
                         >
                             {months.map(
-                                (monthName, index) => (
+                                (
+                                    monthName,
+                                    index
+                                ) => (
                                     <option
                                         key={monthName}
                                         value={index + 1}
@@ -155,10 +184,13 @@ function BudgetForm({ onBudgetAdded }) {
                         </select>
                     </div>
 
-                    <div>
-                        <label>Year</label>
+                    <div className="budget-form-group">
+                        <label htmlFor="budget-year">
+                            Year
+                        </label>
 
                         <input
+                            id="budget-year"
                             type="number"
                             value={year}
                             onChange={(event) =>
@@ -166,12 +198,16 @@ function BudgetForm({ onBudgetAdded }) {
                                     event.target.value
                                 )
                             }
+                            min="2020"
                             required
                         />
                     </div>
                 </div>
 
-                <button type="submit">
+                <button
+                    className="budget-submit-button"
+                    type="submit"
+                >
                     Save Budget
                 </button>
             </form>
