@@ -1,157 +1,246 @@
-# 💰 FinSight – Intelligent Personal Finance Dashboard
+# 💰 FinSight
 
-## 📌 About the Project
+### Personal Finance Analytics & Expense Forecasting Platform
 
-FinSight is a full-stack personal finance analytics platform built using
-the MERN stack.
+::: {align="center"}
+A full-stack finance dashboard for tracking, analyzing, and predicting
+personal expenses.
 
-The application helps users manage income and expenses, track monthly
-budgets, analyze spending patterns, and forecast future expenses using
-historical financial data.
+**[Live Demo](https://finsightfinancedashboard.netlify.app/) · [GitHub
+Repository](https://github.com/tanmayi48/finsight-finance-dashboard)**
+:::
 
-The project combines full-stack web development, REST API integration,
-financial analytics, and Simple Linear Regression-based expense
-forecasting.
+------------------------------------------------------------------------
 
----
+## 💡 What is FinSight?
 
-## 🚀 Key Features
+FinSight is a full-stack personal finance analytics platform designed to
+help users track income, monitor expenses, manage monthly budgets, and
+understand spending patterns through interactive financial
+visualizations.
 
-- Secure user registration and login using JWT authentication
-- Add and manage income and expense transactions
-- Real-time calculation of total income, expenses, and balance
-- Category-wise monthly budget management
-- Category-based expense analysis
-- Monthly income and expense trend visualization
-- Personalized financial insights based on spending data
-- Next-month expense prediction using Simple Linear Regression
-- Interactive financial charts using Chart.js
-- Responsive financial dashboard
+Unlike a basic expense tracker, FinSight analyzes transaction history,
+generates financial insights, and estimates future expenses using
+historical spending trends.
 
----
+> 💡 **Track smarter. Understand your spending. Plan your finances
+> better.**
 
-## 🧠 Expense Prediction
+``` text
+👤 User adds transactions
+        ↓
+💳 FinSight stores financial data
+        ↓
+📊 Backend analyzes spending patterns
+        ↓
+🧠 Financial insights are generated
+        ↓
+📈 Future expenses are predicted
+        ↓
+💰 Dashboard displays financial overview
+```
 
-FinSight analyzes historical monthly expense data and applies
-Simple Linear Regression to estimate the expected expense for the
-next month.
+------------------------------------------------------------------------
 
-The prediction workflow:
+## ✨ Feature Highlights
 
-1. Retrieves the user's historical expense transactions
-2. Groups expenses by month
-3. Calculates total monthly spending
-4. Applies Linear Regression to identify the spending trend
-5. Predicts the expected expense for the next month
+  ---------------------------------------------------------------------
+  🚀 Feature                         📝 Description
+  ---------------------------------- ----------------------------------
+  🔐 Secure Authentication           JWT-based user registration and
+                                     login
 
-This feature integrates basic predictive analytics into the MERN
-application.
+  💳 Transaction Management          Add and manage income and expense
+                                     transactions
 
----
+  💰 Financial Overview              View total income, total expenses,
+                                     and current balance
 
-## 🛠️ Tech Stack
+  🎯 Budget Management               Set category-wise monthly spending
+                                     limits
 
-### Frontend
+  📊 Expense Analytics               Analyze category-wise expense
+                                     distribution
 
-- React.js
-- Vite
-- Axios
-- React Router
-- Chart.js
+  📈 Monthly Trends                  Compare monthly income and expense
+                                     patterns
 
-### Backend
+  🧠 Financial Insights              Generate observations based on
+                                     spending activity
 
-- Node.js
-- Express.js
-- REST APIs
-- JWT Authentication
-- bcryptjs
+  🔮 Expense Forecasting             Predict next-month expenses using
+                                     historical trends
 
-### Database
+  📉 Interactive Charts              Visualize financial data using
+                                     Chart.js
 
-- MongoDB
-- MongoDB Atlas
-- Mongoose
+  ☁️ Cloud Deployment A              ccess the deployed full-stack
+                                     application online
+  ---------------------------------------------------------------------
 
-### Deployment
-
-- Netlify
-- Render
-- MongoDB Atlas
-
----
+------------------------------------------------------------------------
 
 ## 🏗️ System Architecture
 
-```text
-User
-  ↓
-React Frontend
-  ↓
-Axios REST API Requests
-  ↓
-Node.js + Express Backend
-  ↓
-Mongoose
-  ↓
-MongoDB Atlas
-⚙️ How It Works
-The user registers or logs into FinSight.
-JWT authentication protects user-specific financial data.
-Users add income and expense transactions.
-Transaction data is stored in MongoDB Atlas.
-The backend aggregates financial data using REST APIs.
-React displays financial summaries and interactive charts.
-The insight module analyzes spending and budget information.
-The prediction service forecasts the next month's expenses.
-🔐 Authentication & Security
-Password hashing using bcryptjs
-JWT-based authentication
-Protected backend API routes
-User-specific financial data access
-Environment variables for sensitive credentials
-🌐 Deployment
+``` text
+╔══════════════════════════════════════════════╗
+║                 👤 USER                      ║
+║        Login • Transactions • Budgets        ║
+╚══════════════════════╦═══════════════════════╝
+                       ║
+                       ▼
+╔══════════════════════════════════════════════╗
+║            ⚛️ REACT FRONTEND                 ║
+║   Dashboard • Forms • Charts • Insights      ║
+║                 Netlify                      ║
+╚══════════════════════╦═══════════════════════╝
+                       ║
+                 Axios / REST API
+                       ║
+                       ▼
+╔══════════════════════════════════════════════╗
+║          🚀 NODE.JS + EXPRESS API            ║
+║ Authentication • Transactions • Budgets      ║
+║ Analytics • Insights • Predictions           ║
+║                  Render                      ║
+╚══════════════════════╦═══════════════════════╝
+                       ║
+                    Mongoose
+                       ║
+                       ▼
+╔══════════════════════════════════════════════╗
+║             🗄️ MONGODB ATLAS                ║
+║        Users • Transactions • Budgets        ║
+╚══════════════════════════════════════════════╝
+```
 
-The application is deployed using a cloud-based architecture.
+------------------------------------------------------------------------
 
-Frontend: Netlify
+## 🛠️ Tech Stack
 
-Backend: Render
+  -----------------------------------------------------------------------
+  Layer                   Technology              Purpose
+  ----------------------- ----------------------- -----------------------
+  ⚛️ Frontend R           eact.js + Vite B        uild the interactive
+                                                  financial dashboard
 
-Database: MongoDB Atlas
+  🔗 API Communication    Axios                   Connect the frontend
+                                                  with REST APIs
 
-🔗 Live Demo
+  📊 Data Visualization   Chart.js                Display expense
+                                                  distribution and
+                                                  monthly trends
 
-👉 https://finsightfinancedashboard.netlify.app/
+  🚀 Backend              Node.js + Express.js    Handle APIs and
+                                                  application logic
 
-💻 Source Code
+  🗄️ Database M           ongoDB Atlas S          tore users,
+                                                  transactions, and
+                                                  budgets
 
-👉 https://github.com/tanmayi48/finsight-finance-dashboard
+  🔧 ODM                  Mongoose                Model and manage
+                                                  MongoDB data
 
-📸 Project Preview
-Login Page
+  🔐 Authentication       JWT + bcryptjs          Secure authentication
+                                                  and password hashing
 
-Add login page screenshot here.
+  🧠 Prediction           Simple Linear           Estimate future
+                          Regression              expenses
 
-Financial Dashboard
+  🌐 Frontend Hosting     Netlify                 Deploy the React
+                                                  frontend
 
-Add dashboard screenshot here.
+  ☁️ Backend Hosting R    ender D                 eploy the Node.js
+                                                  backend
+  -----------------------------------------------------------------------
 
-Analytics & Expense Prediction
+------------------------------------------------------------------------
 
-Add analytics and prediction screenshot here.
+## 🔮 Expense Forecasting
 
-🚀 Future Improvements
-Savings goal tracking
-Recurring transaction management
-Advanced expense forecasting models
-Spending anomaly detection
-Financial report export
-Email-based budget notifications
-👩‍💻 Developed By
+FinSight includes a lightweight expense prediction module that analyzes
+historical monthly spending data and estimates the expected expense for
+the upcoming month.
 
-Tanmayi P
+``` text
+📥 Historical Expense Data
+          ↓
+📅 Group Expenses by Month
+          ↓
+💰 Calculate Monthly Expense Totals
+          ↓
+📈 Analyze Spending Trend
+          ↓
+🧠 Apply Simple Linear Regression
+          ↓
+🔮 Predict Next-Month Expense
+```
 
-Information Science and Engineering Student
+The prediction workflow groups historical expenses by month, calculates
+monthly totals, and applies Simple Linear Regression to identify the
+spending trend. The predicted value is returned through the backend API
+and displayed on the financial dashboard.
 
-GitHub: https://github.com/tanmayi48
+------------------------------------------------------------------------
+
+## ⚙️ How FinSight Works
+
+``` text
+1️⃣ User creates an account or logs in
+              ↓
+2️⃣ JWT verifies and protects the user
+              ↓
+3️⃣ User adds income and expense transactions
+              ↓
+4️⃣ Financial data is stored in MongoDB Atlas
+              ↓
+5️⃣ Express REST APIs process financial data
+              ↓
+6️⃣ Analytics services calculate spending trends
+              ↓
+7️⃣ Insight service analyzes financial activity
+              ↓
+8️⃣ Prediction service forecasts future expenses
+              ↓
+9️⃣ React dashboard displays the results
+```
+
+FinSight follows a client-server architecture. The React frontend sends
+requests through Axios to the Express backend. Protected APIs process
+user-specific financial data stored in MongoDB Atlas, while analytics,
+insight, and prediction modules generate dashboard results.
+
+------------------------------------------------------------------------
+
+## 🔌 API Modules
+
+  -----------------------------------------------------------------------
+  API Module              Base Endpoint           Purpose
+  ----------------------- ----------------------- -----------------------
+  🔐 Authentication       `/api/auth`             Register and
+                                                  authenticate users
+
+  💳 Transactions         `/api/transactions`     Manage income and
+                                                  expense transactions
+
+  🎯 Budgets              `/api/budgets`          Manage category-wise
+                                                  monthly budgets
+
+  📊 Analytics            `/api/analytics`        Generate category and
+                                                  monthly financial
+                                                  analytics
+
+  🧠 Insights             `/api/insights`         Generate personalized
+                                                  financial observations
+
+  🔮 Predictions          `/api/predictions`      Generate expense
+                                                  forecasts
+  -----------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+::: {align="center"}
+### 💰 Track. Analyze. Predict.
+
+**FinSight --- Understand your finances through data.**
+:::
